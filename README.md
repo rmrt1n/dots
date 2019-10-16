@@ -1,4 +1,4 @@
 # dotfiles
-![desktop](https://github.com/rmrt1n/dots/blob/master/desktop.jpg)
+![desktop](https://github.com/rmrt1n/dots/blob/master/desktop.png)
 .
-![tiling](https://github.com/rmrt1n/dots/blob/master/tiling.jpg)
+![tiling](https://github.com/rmrt1n/dots/blob/master/tiling.png)
