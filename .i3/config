@@ -27,7 +27,7 @@ bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Shift+q kill
 
 # Start dmenu/rofi (program launcher)
-#bindsym $mod+d exec rofi -show drun -config ~/.config/rofi/rofi.conf
+#bindsym $mod+d exec rofi -show drun -config ~/.i3/rofi.conf
 bindsym $mod+d exec ~/.i3/./dmnu
 
 # Sound controls (pulse audio)
