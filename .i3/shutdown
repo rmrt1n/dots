@@ -1,0 +1,13 @@
+#!/bin/bash
+
+chosen=$(echo -e "Cancel\nLogout\nSuspend\nShutdown\nReboot" | dmenu -i -p 'Exit:' -nb '#eeeeee' -nf '#4d4d4c' -sb '#3e999f' -fn 'DejaVu Sans Mono')
+
+if [[ $chosen == 'Logout' ]]; then
+    i3-msg exit
+elif [[ $chosen == 'Suspend' ]]; then
+    i3lock -i ~/Downloads/wallpapers/wp2.png && systemctl suspend
+elif [[ $chosen == 'Shutdown' ]]; then
+    systemctl poweroff
+elif [[ $chosen == 'Reboot' ]]; then
+    systemctl reboot
+fi

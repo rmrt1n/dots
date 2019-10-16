@@ -1,0 +1,17 @@
+#!/bin/bash
+
+date=$(date +%Y-%m-%d)
+
+time=$(date +%H:%M)
+
+sound=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')
+
+bat=/sys/class/power_supply/BAT1/capacity
+stat=/sys/class/power_supply/BAT1/status
+
+battery=$(while read percentage; do echo $percentage; done < $bat)
+status=$(while read statu; do echo $statu; done < $stat)
+
+notify-send "date: $date\ntime: $time\nsound: $sound\nbattery: $status $battery%" 
+notify-send "status"
+
