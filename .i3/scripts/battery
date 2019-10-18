@@ -1,0 +1,29 @@
+#!/bin/bash
+
+battery=$(cat /sys/class/power_supply/BAT1/capacity)
+status=$(cat /sys/class/power_supply/BAT1/status)
+
+while :
+do
+    if [ $status == 'Discharging' ]; then
+        if [ $battery -le 15 ] && [ $battery -gt 5 ]; then
+            notify-send 'Battery is lower than 15%'
+            notify-send 'Low battery:'
+            sleep 3m
+        elif [ $battery -le 5 ]; then
+            notify-send -u critical 'Battery is lower than 5%'
+            notify-send -u critical 'WARNING! LOW BATTERY'
+            sleep 3m
+        else 
+            sleep 3m
+        fi
+    elif [ $status == 'Charging' ]; then
+        if [ $battery == 100 ]; then
+            notify-send 'Unplug from power source'
+            notify-send 'Battery is already full'
+            sleep 3m
+        else 
+            sleep 10m
+        fi
+    fi
+done
