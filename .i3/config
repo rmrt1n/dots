@@ -165,7 +165,7 @@ mode "resize" {
 exec_always --no-startup-id  feh --bg-scale ~/.i3/wallpapers/wp4.jpg
 exec --no-startup-id compton --config ~/.i3/confs/compton.conf 
 exec --no-startup-id xautolock -time 15 -locker "i3lock -i ~/.i3/wallpapers/wp2.png"
-exec_always --no-startup-id ~/.i3/scripts/battery
+exec --no-startup-id ~/.i3/scripts/battery
 
 # Screenshot
 bindsym $mod+Print exec scrot -e 'mv $f ~/scrot'
