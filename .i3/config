@@ -1,4 +1,4 @@
-# i3 config file (v4)
+#  i3 config file (v4)
 # user guide at https://i3wm.org/docs/userguide.html
 
 #####
@@ -27,7 +27,7 @@ bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Shift+q kill
 
 # Start dmenu/rofi (program launcher)
-#bindsym $mod+d exec rofi -show drun -config ~/.i3/rofi.conf
+#bindsym $mod+d exec rofi -show drun -config ~/.i3/confs/rofi.conf
 bindsym $mod+d exec ~/.i3/scripts/./dmnu
 
 # Sound controls (pulse audio)
@@ -163,13 +163,12 @@ mode "resize" {
 
 # Execs
 exec_always --no-startup-id  feh --bg-scale ~/.i3/wallpapers/wp4.jpg
-exec --no-startup-id compton --config ~/.i3/compton.conf 
+exec --no-startup-id compton --config ~/.i3/confs/compton.conf 
 exec --no-startup-id xautolock -time 15 -locker "i3lock -i ~/.i3/wallpapers/wp2.png"
 exec_always --no-startup-id ~/.i3/scripts/battery_notif
-exec --no-startup-id lxsession
 
 # Screenshot
-bindsym $mod+Print exec scrot
+bindsym $mod+Print exec scrot -e 'mv $f ~/scrot'
 
 # Status notification
 bindsym $mod+n exec ./.i3/scripts/status_notif
@@ -178,7 +177,7 @@ bindsym $mod+n exec ./.i3/scripts/status_notif
 set $bg-color            #3e999f
 set $inactive-bg-color   #3e999f
 set $text-color          #ffffff
-set $inactive-text-color #f3f4f5
+set $inactive-text-color #ededed
 set $urgent-bg-color     #d7005f
 
 # Theme colors
@@ -187,5 +186,28 @@ client.focused           $bg-color          $bg-color          $text-color
 client.focused_inactive  $inactive-bg-color $inactive-bg-color $inactive-text-color
 client.unfocused         $inactive-bg-color $inactive-bg-color $inactive-text-color
 client.urgent            $urgent-bg-color   $urgent-bg-color   $text-color
+
+# I3bar and i3status
+bar { 
+    status_command i3status -c ~/.i3/confs/i3status.conf 
+    position top
+# autohide i3bar    
+    mode hide
+    modifier none
+#bar colors
+    colors {
+        separator $
+        background $inactive-text-color 
+        statusline #4d4d4c
+#                          border           backgr.          text 
+        focused_workspace  $bg-color        $bg-color        $inactive-text-color
+        active_workspace   $bg-color        $bg-color        $inactive-text-color
+        inactive_workspace #1f4c4f          #1f4c4f          $inactive-text-color
+        urgent_workspace   $urgent-bg-color $urgent-bg-color $inactive-text-color
+        }
+
+    }
+
+bindsym $mod+m bar mode toggle
 
 #####
