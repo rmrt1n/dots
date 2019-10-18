@@ -28,7 +28,7 @@ bindsym $mod+Shift+q kill
 
 # Start dmenu/rofi (program launcher)
 #bindsym $mod+d exec rofi -show drun -config ~/.i3/confs/rofi.conf
-bindsym $mod+d exec ~/.i3/scripts/./dmnu
+bindsym $mod+d exec ~/.i3/scripts/dmnu
 
 # Sound controls (pulse audio)
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
@@ -96,6 +96,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# focus the child container
+bindsym $mod+d focus child
 #####
 
 # Workspace names
@@ -138,7 +140,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+9 exec i3lock -i ~/.i3/wallpapers/wp2.png
 
 # Exit i3 - dmenu(shutdown/reboot/logout)
-bindsym $mod+0 exec ~/.i3/scripts/./shutdown
+bindsym $mod+0 exec ~/.i3/scripts/shutdown
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -165,13 +167,13 @@ mode "resize" {
 exec_always --no-startup-id  feh --bg-scale ~/.i3/wallpapers/wp4.jpg
 exec --no-startup-id compton --config ~/.i3/confs/compton.conf 
 exec --no-startup-id xautolock -time 15 -locker "i3lock -i ~/.i3/wallpapers/wp2.png"
-exec_always --no-startup-id ~/.i3/scripts/battery_notif
+exec_always --no-startup-id ~/.i3/scripts/battery
 
 # Screenshot
 bindsym $mod+Print exec scrot -e 'mv $f ~/scrot'
 
 # Status notification
-bindsym $mod+n exec ./.i3/scripts/status_notif
+bindsym $mod+n exec ./.i3/scripts/status
 
 # Color palette
 set $bg-color            #3e999f
@@ -207,7 +209,6 @@ bar {
         }
 
     }
-
 bindsym $mod+m bar mode toggle
 
 #####
