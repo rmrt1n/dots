@@ -1,3 +1,3 @@
 #!/bin/bash
 
-i3-dmenu-desktop --dmenu='dmenu -i -p run: -nb #eeeeee -nf #4d4d4c -sb #3e999f -i -fn 'DejaVu Sans Mono'' 
+i3-dmenu-desktop --dmenu='dmenu -i -p run: -nb #eeeeee -nf #4d4d4c -sb #3e999f -i -fn 'DejaVuSansMono'' 
