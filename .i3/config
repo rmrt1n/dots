@@ -45,7 +45,12 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 # Start Applications
 bindsym $mod+XF86AudioLowerVolume exec firefox
 bindsym $mod+XF86AudioRaiseVolume exec thunar
-#bindsym $mod+XF86AudioMute exec sqlitebrowser
+bindsym $mod+XF86AudioMute exec sqlitebrowser
+# On demand search bar
+bindsym $mod+s exec ~/.i3/scripts/search
+# On demand calculator 
+bindsym grave exec urxvt -g 54x12 -name calc -e bc 
+for_window [class="URxvt" instance="calc"] floating enable move up 240px,move left 400px
 
 # Change focus
 bindsym $mod+h focus left
@@ -83,7 +88,6 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
