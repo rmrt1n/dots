@@ -5,3 +5,11 @@
 .
 ![tiling](https://github.com/rmrt1n/dots/blob/master/tiling.png)
 
+install:
+* urxvt
+* dmenu
+* i3lock/i3lock-fancy
+* dunst
+* compton
+* lxappearance
+* scrot
