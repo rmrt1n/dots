@@ -56,6 +56,9 @@ for_window [class="URxvt" instance="calc"] floating enable move up 240px,move le
 bindsym $mod+Print exec scrot -e 'mv $f ~/scrot'
 # status notification
 bindsym $mod+n exec ./.i3/scripts/status
+# music player
+bindsym $mod+c exec urxvt -name cmus -e cmus
+for_window [class="URxvt" instance="cmus"] floating enable
 
 # Change focus
 bindsym $mod+h focus left
