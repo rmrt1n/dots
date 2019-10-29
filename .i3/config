@@ -28,8 +28,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle 
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
 
 #####
 
@@ -135,6 +135,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 assign [class="Firefox"] $ws1
 assign [class="Thunar"] $ws3
 assign [class="DB Browser for SQLite"] $ws4
+assign [class="URxvt" instance="htop"] $ws6
 #####
 
 # Reload the configuration file
@@ -182,10 +183,12 @@ exec --no-startup-id xautolock -time 15 -locker "i3lock -i ~/.i3/wallpapers/wp2.
 exec --no-startup-id ~/.i3/scripts/battery
 # bluelight filter
 exec --no-startup-id redshift -l LAT:LON
+# system monitor
+exec --no-startup-id urxvt -name htop -e htop
 
 # Color palette
 set $bg-color            #3e999f
-set $inactive-bg-color   #3e999f
+set $inactive-bg-color   #255b5f
 set $text-color          #ffffff
 set $inactive-text-color #ededed
 set $urgent-bg-color     #d7005f
