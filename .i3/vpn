@@ -1,0 +1,7 @@
+#!/bin/bash
+
+chosen=$(echo -e "No\nYes" | dmenu -p 'PVPN disconect?' -nb '#eeeeee' -nf '#4d4d4c' -sb '#3e999f' -fn 'DejaVu Sans')
+
+if [[ $chosen == 'Yes' ]]; then
+    sudo pvpn -d
+fi

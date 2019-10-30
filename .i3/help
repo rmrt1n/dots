@@ -1,0 +1,23 @@
+#i3 keyboard shortcuts help 
+mod = windows/super key
+
+#launching apps
+* mod+return = urxvt (terminal)
+* mod+d = dmenu (program launcher)
+* mod+f1 = vim (text editor)
+* mod+f2 = firefox (browser)
+* mod+f3 = thunar (file manager)
+* mod+s = search bar (dmenu -> firefox)
+* mod+9 = i3lock (lockscreen)
+* mod+0 = exit i3 (dmenu script)
+* mod+PrtSc = scrot (screenshot)
+* mod+` = bc (calculator)
+* mod+n = show status (dunst)
+* mod+c = music player (cmus)
+* mod+x = vpn (protonvpn-cli)
+# *mod+m = toggle bar (i3bar & i3status)
+
+close apps = mod+shift+q
+
+other keybindings are default 
+$ man i3
