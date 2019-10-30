@@ -1,6 +1,6 @@
 #!/bin/bash
 
-query=$(echo '' | dmenu -p 'Search: ' -nb '#eeeeee' -nf '#4d4d4c' -sb '#3e999f' -fn 'DejaVuSansMono')
+query=$(echo '' | dmenu -p 'Search: ' -nb '#eeeeee' -nf '#4d4d4c' -sb '#3e999f' -fn 'DejaVu Sans')
 
 if [ -n "$query" ]; then
     firefox --search "$query"
