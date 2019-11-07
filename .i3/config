@@ -63,6 +63,10 @@ for_window [class="URxvt" instance="cmus"] floating enable
 bindsym $mod+x exec urxvt -name vpn -e sudo pvpn -m
 for_window [class="URxvt" instance="vpn"] floating enable
 bindsym $mod+Shift+x exec ~/.i3/scripts/vpn
+# keybindings
+bindsym $mod+8 exec urxvt -name help -e less ~/.i3/help
+for_window [class="URxvt" instance="help"] floating enable
+
 
 # Change focus
 bindsym $mod+h focus left
@@ -142,6 +146,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 assign [class="Firefox"] $ws1
 assign [class="Thunar"] $ws3
 assign [class="DB Browser for SQLite"] $ws4
+assign [class="URxvt" instance="cmus"] $ws5
 assign [class="URxvt" instance="htop"] $ws6
 #####
 
@@ -152,7 +157,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym $mod+9 exec i3lock-fancy -p  
+bindsym $mod+9 exec ~/.i3/scripts/lock 
 
 # Exit i3 - dmenu(shutdown/reboot/logout)
 bindsym $mod+0 exec ~/.i3/scripts/shutdown
@@ -184,7 +189,7 @@ exec_always --no-startup-id  feh --bg-scale ~/.i3/wallpapers/wp1.jpg
 # window compositor(compton)
 exec --no-startup-id compton --config ~/.i3/confs/compton.conf 
 # auto screenlock
-exec --no-startup-id xautolock -time 15 -locker "i3lock-fancy -p" 
+exec --no-startup-id xautolock -time 15 -locker "./~/.i3/scripts/lock"
 # power management(low battery notification)
 exec --no-startup-id ~/.i3/scripts/battery
 # bluelight filter(redshift)
