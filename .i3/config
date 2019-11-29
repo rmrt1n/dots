@@ -157,7 +157,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym $mod+9 exec ~/.i3/scripts/lock 
+bindsym $mod+9 exec i3lock -e -c cc3366 
 
 # Exit i3 - dmenu(shutdown/reboot/logout)
 bindsym $mod+0 exec ~/.i3/scripts/shutdown
@@ -189,9 +189,9 @@ exec_always --no-startup-id  feh --bg-scale ~/.i3/wallpapers/wp1.jpg
 # window compositor(compton)
 exec --no-startup-id compton --config ~/.i3/confs/compton.conf 
 # auto screenlock
-exec --no-startup-id xautolock -time 15 -locker "./~/.i3/scripts/lock"
+exec --no-startup-id xautolock -time 15 -locker "i3lock -e -c cc3366"
 # power management(low battery notification)
-exec --no-startup-id ~/.i3/scripts/battery
+exec --no-startup-id xfce4-power-manager
 # bluelight filter(redshift)
 exec --no-startup-id redshift -l 0.918550:104.466507 
 # system monitor
