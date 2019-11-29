@@ -13,3 +13,4 @@ install:
 * compton
 * lxappearance
 * scrot
+* xfce4-power-manager
