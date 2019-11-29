@@ -8,9 +8,11 @@
 install:
 * urxvt
 * dmenu
-* i3lock/i3lock-fancy
+* i3lock
 * dunst
 * compton
 * lxappearance
 * scrot
 * xfce4-power-manager
+* protonvpn-cli
+* cmus
