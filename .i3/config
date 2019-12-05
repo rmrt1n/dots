@@ -183,7 +183,7 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-# Execs
+# Autostart
 # wallpaper(feh)
 exec_always --no-startup-id  feh --bg-scale ~/.i3/wallpapers/wp1.jpg
 # window compositor(compton)
@@ -196,6 +196,8 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id redshift -l LAT:LON 
 # system monitor
 exec --no-startup-id urxvt -name htop -e htop
+# touchpad gestures
+exec --no-startup-id libinput-gestures
 
 # Color palette
 set $bg-color            #3e999f
