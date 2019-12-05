@@ -100,8 +100,8 @@ bindsym $mod+v split v; exec notify-send "vertical tiling"
 bindsym $mod+f fullscreen toggle
 
 # Navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout tabbed
