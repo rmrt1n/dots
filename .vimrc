@@ -1,42 +1,73 @@
-""" simple vimrc file """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"sections:
+"   * user interface options
+"   * text rendering options
+"   * search options 
+"   * indentation options 
+"   * custom keybindings
+"   * misc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => general
+" => user interface options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set how many lines of history to remember
-set history=500
+" set light background
+set background=light
 
-" set to auto read when a file is changed externally 
-set autoread
+" set colorscheme
+colorscheme PaperColor
 
-" set endoding
-set encoding=utf-8
+" set syntax highlighting
+syntax on     
 
-" activates indenting for files
-filetype indent on    
+" show line numbers
+set number
 
-" set spell checking 
-set spell spelllang=en_us
+" show a visual line under cursor's current line
+set cursorline
+" highlight entire line instead of underline
+highlight CursorLine cterm=none ctermbg=254
 
+" set mouse support a=all
+set mouse=a
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set 7 lines under/above cursor when moving down/up
-set so=7
-
-" turn on wildmenu (:command autocompletion)
+" turn on wildmenu (command autocompletion)
 set wildmenu
 
-" search settings:
+" natural split, new files to the right/down
+set splitbelow
+set splitright
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => text rendering options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" use encoding that supports unicode
+set encoding=utf-8
+
+" set number of screen lines to keep above/below cursor 
+set scrolloff=7
+
+" enable line wrapping
+set wrap
+" avoide wrapping a line in the middle of a word
+set linebreak
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => search options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ignore case when searching
 set ignorecase
+
 " smart case when searching
 set smartcase
+
 " live incremental searching
 set incsearch
+
 " highlight all search results
 set hlsearch
 
@@ -46,56 +77,95 @@ set showmatch
 set mat=2
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => appearance 
+" => indentation options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set syntax highlighting
-syntax on     
+" enable indentation rules that are file-type specific
+filetype indent on    
 
-" show line numbers
-set number
-
-" show a visual line under cursor's current line
-set cursorline
-
-" colorschemes
-set background=light
-colorscheme PaperColor
-
-" allow buffers with unsaved changes
-set hidden
-" set mouse
-set mouse=a
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => text, tab, and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" use spaces instead of tab
+" convert tabs into spaces
 set expandtab
-" be smart when using tabs
+" insert 'tab stop' number of spaces when pressing tab
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
+" indent using 4 spaces 
 set tabstop=4
+" when shifting, indent using 4 spaces
+set shiftwidth=4
 
-" indent while moving to next line while writing code
+" new line inherits indentation of the previous line 
 set autoindent          
 " smart indent
 set smartindent
 
-" wrap lines
-set wrap
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => custom keybindings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set leader key to space bar
+let mapleader = " " 
+
+" faster saving and quitting 
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>wq :wq<cr>
+
+" faster set nohighlight
+nmap <leader>n :noh<cr>
+
+" v-split new buffer
+nmap <leader><Enter> :vnew<cr>
+
+" easier switching between tiles
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
+
+" add blank line under cursor
+nmap <leader>o o<Esc>
+
+" faster than reaching for esc key
+inoremap jk <Esc>
+
+" faster moving in wrapped lines
+map j gj
+map k gk
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+" set how many lines of history to remember
+set history=500
+
+" show confirmation dialogue when closing unsaved file
+set confirm
+
+" common typos
+:command W w
+:command Q q
+:command Wq wq
+
+" change terminal title
+set title
+
+" set to auto read when a file is changed externally 
+set autoread
+
+" allow buffers with unsaved changes
+set hidden
+
 " enable all python syntax highlighting features
 let python_highlight_all = 1
 
+" netrw file explorer settings
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_winsize=15
+let g:netrw_browse_split=3
+ 
 
